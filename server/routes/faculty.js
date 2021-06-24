@@ -1,11 +1,11 @@
 const express = require('express');
-const FacultysController = require('../controllers/facultysControllers');
+const FacultiesController = require('../controllers/facultiesControllers');
 const apiRouter = express.Router();
 
 module.exports = () => {
-    apiRouter.get('/get', FacultysController.getFaculty);
-    apiRouter.get('/getAll', FacultysController.getAllFacultys);
-    apiRouter.get('/create', FacultysController.createFaculty);
-    apiRouter.get('/delete', FacultysController.deleteFaculty);
+    apiRouter.get('/get', FacultiesController.getFaculty);
+    apiRouter.get('/getAll', FacultiesController.getAllFaculties);
+    apiRouter.get('/create', FacultiesController.createFaculty);
+    apiRouter.get('/delete', FacultiesController.deleteFaculty);
     return apiRouter;
 };

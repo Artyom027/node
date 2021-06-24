@@ -1,31 +1,31 @@
-const Projects = require('../models/faculties');
+const Faculties = require('../models/faculties');
 
-const FacultysManager = {
+const FacultiesManager = {
     getFaculty: async (params) => {
-        const project = await Projects.findOne(params).lean();
-        if (!project) {
+        const faculty = await Faculties.findOne(params).lean();
+        if (!faculty) {
             throw new Error('Faculty with specified name not found.');
         }
-        return project;
+        return faculty;
     },
 
-    getAllFacultys: async () => {
-        const projects = await Projects.find({}).lean();
-        return projects;
+    getAllFaculties: async () => {
+        const faculties = await Faculties.find({}).lean();
+        return faculties;
     },
 
     createFaculty: async (params) => {
-        const project = new Projects(params);
-        await project.save();
-        return project;
+        const faculty = new Faculties(params);
+        await faculty.save();
+        return faculty;
     },
 
     deleteFaculty: async (params) => {
-        const deletedProject = await Projects.findOneAndDelete(params).lean();
-        if (!deletedProject) {
+        const deletedFaculty = await Faculties.findOneAndDelete(params).lean();
+        if (!deletedFaculty) {
             throw new Error('Can not get deleted Faculty.');
         }
-        return deletedProject;
+        return deletedFaculty;
     }
 };
-module.exports = FacultysManager;
+module.exports = FacultiesManager;

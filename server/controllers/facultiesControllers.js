@@ -1,16 +1,16 @@
-const FacultysManager = require('../services/facultyManager');
+const FacultiesManager = require('../services/facultyManager');
 
-const FacultysController = {
+const FacultiesController = {
     getFaculty : async(req,res) => {
         let response;
         try {
-            const result = await FacultysManager.getFaculty(req.query);
+            const result = await FacultiesManager.getFaculty(req.query);
             response = {
                 code: 200,
                 result
             };
         } catch (error) {
-            const message = (error instanceof Error) ? error.message : 'Can not get project';
+            const message = (error instanceof Error) ? error.message : 'Can not get faculty';
             response = {
                 code: 500,
                 result: message
@@ -19,16 +19,16 @@ const FacultysController = {
             res.status(response.code).send(response.result);
         }
     },
-    getAllFacultys : async(req,res) => {
+    getAllFaculties : async(req,res) => {
         let response;
         try {
-            const result = await FacultysManager.getAllFacultys(req.query);
+            const result = await FacultiesManager.getAllFaculties(req.query);
             response = {
                 code: 200,
                 result
             };
         } catch (err) {
-            const message = (error instanceof Error) ? error.message : 'Can not get projects';
+            const message = (error instanceof Error) ? error.message : 'Can not get faculties';
             response = {
                 code: 500,
                 result: message
@@ -40,14 +40,14 @@ const FacultysController = {
     createFaculty : async (req, res) => {
         let response;
         try {
-            const result = await FacultysManager.createFaculty(req.query);
+            const result = await FacultiesManager.createFaculty(req.query);
             response = {
                 code: 200,
                 result
             };
             
         } catch (error) {
-            const message = (error instanceof Error) ? error.message : 'Can not create project';
+            const message = (error instanceof Error) ? error.message : 'Can not create faculty';
             response = {
                 code: 500,
                 result: message
@@ -59,13 +59,13 @@ const FacultysController = {
     deleteFaculty: async (req, res) => {
         let response, params;
         try {
-            const result = await FacultysManager.deleteFaculty(req.query);
+            const result = await FacultiesManager.deleteFaculty(req.query);
             response = {
                 code: 200,
                 result
             };
         } catch (error) {
-            const message = (error instanceof Error) ? error.message : 'Can not delete project';
+            const message = (error instanceof Error) ? error.message : 'Can not delete faculty';
             response = {
                 code: 500,
                 result: message
@@ -75,4 +75,4 @@ const FacultysController = {
         }
     }
 };
-module.exports = FacultysController;
+module.exports = FacultiesController;
