@@ -1,4 +1,5 @@
 const StudentsManager = require('../services/studentsManager');
+const grades = require('../grade/gradesStudent');
 
 const StudentsController = {
     getStudent : async(req,res) => {
@@ -40,6 +41,9 @@ const StudentsController = {
     createStudent : async (req, res) => {
         let response;
         try {
+            req.query.mog = grades.mog;
+            req.query.grades = grades.grades;
+            req.query.presence = grades.presence; 
             const result = await StudentsManager.createStudent(req.query);
             response = {
                 code: 200,
