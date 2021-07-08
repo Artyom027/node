@@ -7,7 +7,7 @@ const { ObjectId } = Schema;
 autoIncrement.initialize(connection);
 
 const FacultySchema = new Schema ({
-  name :  { type : String},
+  name :  { type : String, unique: true, required: true },
   deanName : { type : String},
   address : { type : String}
 });

@@ -7,8 +7,8 @@ const { ObjectId } = Schema;
 autoIncrement.initialize(connection);
 
 const professionSchema = new Schema ({
-  name :  { type : String},
-  facultyId : { type : Number}
+  name :  { type : String, unique: true, required: true },
+  facultyId : { type : Number, required: true }
 });
 
 professionSchema.plugin(autoIncrement.plugin, { model: 'profession', startAt: 1 });

@@ -19,4 +19,4 @@ const informationAboutUser = new Schema ({
 
 informationAboutUser.plugin(autoIncrement.plugin, { model: 'student', startAt: 1 });
 
-module.exports = connection.model('student',informationAboutUser);
+module.exports = connection.model('student',informationAboutUser)

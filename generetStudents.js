@@ -1,10 +1,9 @@
 const axios = require('axios');
-const generateInfo = require('./client/controler/cantroller')
+const generateInfo = require('./operationsWithDb/controller/generetRandomData')
 
 async function createStudents() {
-    for (let i = 0; i < 5000; i++){
+    for (let i = 0; i < 5000; i++) {
         const personalInformation = generateInfo();
-        console.log(personalInformation);
         try {
             const response = await axios.get('http://localhost:8000/student/create', 
             {

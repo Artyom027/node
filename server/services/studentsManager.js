@@ -2,7 +2,7 @@ const Students = require('../models/students');
 
 const StudentsManager = {
     getStudent: async (params) => {
-        const student = await Students.findOne(params).lean();
+        const student = await Students.find(params).lean();
         return student;
     },
 

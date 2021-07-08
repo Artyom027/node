@@ -7,10 +7,10 @@ const { ObjectId } = Schema;
 autoIncrement.initialize(connection);
 
 const lecturerName = new Schema({
-  name :  { type : String},
+  name :  { type : String },
   age : { type : Number},
   address : { type : String},
-  departmentsId : { type : Number },
+  departmentsId : { type : Number, required: true },
 });
 
 lecturerName.plugin(autoIncrement.plugin, { model: 'lecturer', startAt: 1 });
