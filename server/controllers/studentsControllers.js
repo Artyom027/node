@@ -1,5 +1,5 @@
+const { query } = require('express');
 const StudentsManager = require('../services/studentsManager');
-const grades = require('../grade/gradesStudent');
 
 const StudentsController = {
     getStudent : async(req,res) => {
@@ -40,18 +40,20 @@ const StudentsController = {
     },
     createStudent : async (req, res) => {
         let response;
+        
+
         try {
-            req.query.mog = grades.mog;
-            req.query.grades = grades.grades;
-            req.query.presence = grades.presence; 
+            req.query.birthday = JSON.parse(req.query.birthday);
             const result = await StudentsManager.createStudent(req.query);
+            
             response = {
                 code: 200,
                 result,
             };
             
         } catch (error) {
-            const message = (error instanceof Error) ? error.message : 'Can not create project';
+            console.log(error)
+            const message = (error instanceof Error) ? error.message : 'Can not create student';
             response = {
                 code: 500,
                 result: message,

@@ -9,7 +9,7 @@ autoIncrement.initialize(connection);
 const informationAboutExamAndTest = new Schema ({
 
   studentId : {type : Number},
-  //mog : { type : Number},
+  mog : { type : Number},
   inspectionType : {type : String},
   grades : [{ type : Object }],
   

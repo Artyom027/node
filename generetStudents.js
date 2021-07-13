@@ -7,6 +7,7 @@ async function createStudents() {
         try {
             const response = await axios.get('http://localhost:8000/student/create', 
             {
+                
                 params : personalInformation
             })
             console.log(response.data)
@@ -17,33 +18,3 @@ async function createStudents() {
 }
 
 createStudents();
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-  

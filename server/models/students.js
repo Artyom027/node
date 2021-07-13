@@ -7,13 +7,21 @@ const { ObjectId } = Schema;
 autoIncrement.initialize(connection);
 
 const informationAboutUser = new Schema ({
-  name : { type : String},
-  age : { type : Number},
-  address : { type : String},
-  professionId : { type : Number},
-  mog : { type : Number, default : 0},
-  presence : {type : Number,default : 0},
-  grades : [{type : Number}],
+  firstName : { type : String, required : true},
+  lastName : { type : String, required : true},
+  age : { type : Number },
+  address : { type : String },
+  professionId : { type : Number },
+  dateCreated: { type: Date, default : Date.now },
+  birthday : {
+    type: {
+      day: { type: Number, required : true },
+      month: { type: String, required : true },
+      year: { type: Number, required : true }
+    },
+    required: true,
+  }, 
+  grade : {type : Number },
   
 });
 
