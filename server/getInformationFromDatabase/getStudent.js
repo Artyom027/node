@@ -1,8 +1,7 @@
 const Student = require('../models/students')
 async function getStudent(params) {
-    const student = await Student.find({ params }).lean();
+    const student = await Student.find({_id : params._id }).lean();
     return student;
 }
-getStudent();
 
-module.exports = getStudent();
+module.exports = getStudent;

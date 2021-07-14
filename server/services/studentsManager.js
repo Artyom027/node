@@ -1,13 +1,10 @@
 const Students = require('../models/students');
-const Exams = require('../models/exams')
 
 const StudentsManager = {
     getStudent: async (params) => {
         const student = await Students.find(params).lean();
-        const exams = await Exams.find({ studentId : params._id }).lean();
 
-        return {student, 
-        exams};
+        return student;
     },
 
     getAllStudents: async () => {

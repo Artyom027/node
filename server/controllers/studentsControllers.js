@@ -1,11 +1,14 @@
-const { query } = require('express');
+//const { query } = require('express');
 const StudentsManager = require('../services/studentsManager');
+const StudentMog = require('../getInformationFromDatabase/studentsMogCalculation');
 
 const StudentsController = {
     getStudent : async(req,res) => {
         let response;
         try {
-            const result = await StudentsManager.getStudent(req.query);
+            const result = {};
+            result.student = await StudentsManager.getStudent(req.query);
+            result.mog = await StudentMog(req.query);
             response = {
                 code: 200,
                 result,
