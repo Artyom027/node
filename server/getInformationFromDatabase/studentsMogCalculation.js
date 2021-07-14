@@ -2,7 +2,7 @@ const ExamsResult = require('../getInformationFromDatabase/studentExamsResult');
 const Subjects = require('../getInformationFromDatabase/getSubject');
 const Student = require('../getInformationFromDatabase/getStudent');
 
-async function dataConsolidation (params) {
+async function studentsMogCalculation(params) {
     const exams = await ExamsResult(params);
     const student = await Student(params);
     const subjects = await Subjects(student);
@@ -25,4 +25,4 @@ async function dataConsolidation (params) {
     return studentCredits * 20 / amountOfCredits;
 }
 
-module.exports = dataConsolidation;
+module.exports = studentsMogCalculation;
