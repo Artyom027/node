@@ -14,7 +14,7 @@ const StudentsController = {
                 result,
             };
         } catch (error) {
-            const message = (error instanceof Error) ? error.message : 'Can not get project';
+            const message = (error instanceof Error) ? error.message : 'Can not get student';
             response = {
                 code: 500,
                 result: message,
@@ -32,7 +32,7 @@ const StudentsController = {
                 result,
             };
         } catch (err) {
-            const message = (error instanceof Error) ? error.message : 'Can not get projects';
+            const message = (error instanceof Error) ? error.message : 'Can not get students';
             response = {
                 code: 500,
                 result: message,
